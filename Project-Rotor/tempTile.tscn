@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="tempTile" type="Node"]
+
+[node name="Medwall" type="Sprite" parent="."]
+editor/display_folded = true
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Medwall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Medwall/StaticBody2D"]
+position = Vector2( 32, 32 )
+shape = SubResource( 1 )
+
+[node name="Bigwall" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 32, 64 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bigwall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bigwall/StaticBody2D"]
+position = Vector2( 32, 32 )
+shape = SubResource( 1 )
+
+[node name="Smallwall" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 64, 0 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Smallwall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Smallwall/StaticBody2D"]
+position = Vector2( 32, 32 )
+shape = SubResource( 1 )
+

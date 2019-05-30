@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/LevelController.gd" type="Script" id=2]
+[ext_resource path="res://temptiles.tres" type="TileSet" id=3]
+[ext_resource path="res://Prefabs/Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/LevelFinish.tscn" type="PackedScene" id=5]
+
+[node name="TutorialLevel" type="Node2D"]
+position = Vector2( 512, 416 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 213.57, 390.643 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[node name="MapRotator" type="Node2D" parent="."]
+position = Vector2( 553.266, 123.635 )
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="MapRotator"]
+self_modulate = Color( 0, 0, 0, 1 )
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -262151, 0, 0, -327675, 0, 0, -196615, 0, 0, -262139, 0, 0, -131079, 0, 0, -196603, 0, 0, -65543, 0, 0, -131067, 0, 0, -7, 0, 0, -65531, 0, 0, 65529, 0, 0, 5, 0, 0, 131065, 0, 0, 65541, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 131077, 0, 0, 262137, 0, 0, 196613, 0, 0, 327673, 0, 0, 262149, 0, 0, 393209, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0 )
+
+[node name="Label5" type="Label" parent="MapRotator"]
+margin_left = -358.937
+margin_top = 42.4199
+margin_right = -318.937
+margin_bottom = 56.4199
+text = "label	"
+
+[node name="Buttons" type="Node2D" parent="MapRotator"]
+editor/display_folded = true
+
+[node name="0" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
+position = Vector2( -92.7465, 306.539 )
+
+[node name="2" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
+position = Vector2( -13.7991, 306.539 )
+
+[node name="1" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
+position = Vector2( 309.156, 107.479 )
+rotation = -1.5893
+scale = Vector2( 0.5, 0.25 )
+
+[node name="3" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
+position = Vector2( 308.103, -91.4683 )
+rotation = -1.5893
+scale = Vector2( 0.5, 0.25 )
+
+[node name="4" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
+position = Vector2( 129.156, -308.31 )
+rotation = -3.15839
+scale = Vector2( 0.5, 0.25 )
+
+[node name="5" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
+position = Vector2( -181.371, -310.416 )
+rotation = -3.15839
+scale = Vector2( 0.5, 0.25 )
+
+[node name="6" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
+position = Vector2( -374.181, -58.8174 )
+rotation = 1.56216
+scale = Vector2( 0.5, 0.25 )
+direction = 1
+
+[node name="LevelFinish" parent="MapRotator" instance=ExtResource( 5 )]
+modulate = Color( 0.180392, 0.6, 0.0313726, 1 )
+position = Vector2( -341.266, 94.3652 )
+
