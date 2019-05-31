@@ -1,6 +1,6 @@
 extends Area2D
 
-export(String) var scenePath = "res://Scenes/Main Menu.tscn"
+export(String) var scenePath = "res://Scenes/Level1.tscn"
 
 func _ready():
 	pass 

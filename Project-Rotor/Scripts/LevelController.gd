@@ -13,11 +13,6 @@ func _ready():
 
 func _process(delta):
 	timeTaken += delta
-#	$Label.text = str(stepify(rotation_degrees, 1))
-#	$Label2.text = str(targetrot)
-#	$Label3.text = str(is_Rotating)
-#	$Label4.text = str(numrots)
-	$Label5.text = str(stepify(timeTaken, 0.01))
 	if not is_Rotating:
 		var btns = $Buttons.get_children()
 		for btn in btns:
