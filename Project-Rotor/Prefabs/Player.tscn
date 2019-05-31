@@ -13,12 +13,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "hang",
+"name": "sprint",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "skid",
+"name": "run",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -33,12 +33,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "sprint",
+"name": "skid",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "run",
+"name": "hang",
 "speed": 5.0
 } ]
 
