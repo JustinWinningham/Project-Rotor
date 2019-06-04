@@ -1,6 +1,7 @@
 extends Control
 
 var unsaved_changes = false
+export(NodePath) var backmenu = "res://Scenes/Menus/Main Menu.tscn"
 
 func _ready():
 	pass # Replace with function body.
@@ -39,7 +40,7 @@ func _on_DefaultsBtn_pressed():
 
 
 func _back_to_main_menu():
-	get_tree().change_scene("res://Scenes/Main Menu.tscn")
+	get_tree().change_scene(backmenu)
 	pass
 
 

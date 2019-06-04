@@ -36,16 +36,14 @@ rotation = -1.5893
 [node name="3" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
 position = Vector2( 304.956, 160.207 )
 rotation = -1.5893
-direction = 1
 
 [node name="4" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
 position = Vector2( 307.411, 193.356 )
 rotation = -1.5893
-direction = 1
 
 [node name="LevelFinish" parent="MapRotator" instance=ExtResource( 5 )]
 modulate = Color( 0.180392, 0.6, 0.0313726, 1 )
 position = Vector2( -27.7141, 41.3636 )
-scenePath = "res://Scenes/Main Menu.tscn"
+scenePath = "res://Scenes/Menus/Main Menu.tscn"
 level = 2
 

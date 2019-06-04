@@ -26,7 +26,7 @@ tile_data = PoolIntArray( -458753, 1, 0, -524288, 1, 0, -393224, 1, 0, -458746, 
 [node name="Buttons" type="Node2D" parent="MapRotator"]
 
 [node name="0" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
-position = Vector2( -92.7465, 306.539 )
+position = Vector2( 279.319, 307.705 )
 
 [node name="2" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
 position = Vector2( -13.7991, 306.539 )
@@ -48,8 +48,9 @@ position = Vector2( -181.371, -310.416 )
 rotation = -3.15839
 
 [node name="6" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
-position = Vector2( -372.594, -31.8442 )
+position = Vector2( -115.997, 298.233 )
 rotation = 1.56216
+delta_rotation = -90
 
 [node name="LevelFinish" parent="MapRotator" instance=ExtResource( 5 )]
 modulate = Color( 0.180392, 0.6, 0.0313726, 1 )
@@ -58,22 +59,4 @@ position = Vector2( 128.056, 289.777 )
 [node name="Sawblade_L" parent="MapRotator" instance=ExtResource( 6 )]
 statik = false
 move_to = Vector2( 0, 160 )
-
-[node name="DEBUG_A" type="Label" parent="MapRotator"]
-margin_left = -288.089
-margin_top = 52.4858
-margin_right = -248.089
-margin_bottom = 66.4858
-
-[node name="DEBUG_B" type="Label" parent="MapRotator"]
-margin_left = -232.104
-margin_top = 16.3289
-margin_right = -192.104
-margin_bottom = 30.3289
-
-[node name="DEBUG_C" type="Label" parent="MapRotator"]
-margin_left = -194.781
-margin_top = -29.1588
-margin_right = -154.781
-margin_bottom = -15.1588
 

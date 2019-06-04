@@ -1,5 +1,9 @@
 extends Node
 
+enum GAMESTATE {LEVELWIN, LEVELDEATH, LEAVESCENE, ENTERSCENE, IDLE}
+var STATE
+var level2load = null
+
 var current_level = 0
 var max_level = 0
 var did_find_save = false
@@ -24,6 +28,7 @@ var time_floored = 0.0
 var timesArray = []
 
 func _ready():
+	STATE = GAMESTATE.IDLE
 	var i = 0
 	timesArray.resize(20) # this will have to change if we get more than 40 levels
 	print("GLOBAL Loaded")
@@ -36,8 +41,9 @@ func _ready():
 	pass
 
 
-#func _process(delta):
-#	pass
+func _process(delta):
+	randomize()
+	pass
 
 
 func form_save():

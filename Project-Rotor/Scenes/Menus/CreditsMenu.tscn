@@ -32,5 +32,5 @@ margin_right = 100.0
 margin_bottom = 50.0
 text = "back"
 script = ExtResource( 2 )
-scenePath = "res://Scenes/Main Menu.tscn"
+scenePath = "res://Scenes/Menus/Main Menu.tscn"
 

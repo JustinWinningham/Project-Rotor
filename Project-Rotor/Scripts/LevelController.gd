@@ -8,42 +8,39 @@ var numrots = 0
 var timeTaken = 0.0
 
 func _ready():
+	if get_tree().paused:
+		get_tree().paused = false
 	pass
 
-
 func _process(delta):
-	$DEBUG_A.text = str(targetrot)
-	$DEBUG_C.text = str(numrots)
-	
 	timeTaken += delta
+	# Update our target rotation to trigger the next loop
+	# By looping over all of our buttons and checking if they have been tripped
 	if not is_Rotating:
 		var btns = $Buttons.get_children()
 		for btn in btns:
 			var ctrl = btn.call("_check_for_rotate")
 			if ctrl:
 				oldrot = rotation_degrees
-				var deltadir = btn.call("_get_delta_dir")
-				$DEBUG_B.text = str(deltadir)
-				if deltadir > 0:
-					numrots += 1
-					targetrot += deltadir
-				else:
-					numrots -= 1
-					targetrot -= deltadir
+				var deltadir = btn.delta_rotation
+				targetrot += deltadir
 				rotspeed = btn.rot_speed
 			pass
 		pass
-	if stepify(rotation_degrees, 1) != targetrot:
-		# Current issue: when we try to rotate with numrots == 0, divide by zero error
-		var truerots = abs(numrots) # EXPERIMENTAL
-		if truerots == 0: # EXPERIMENTAL
-			truerots = 1 # EXPERIMENTAL
+	var future_rotation_degrees = stepify(rotation_degrees, 1)
+	# If our target rotation is not equal to our current rotation
+	if future_rotation_degrees != targetrot:
+		# If we need to add rotation
 		if targetrot > rotation_degrees:
 			is_Rotating = true
-			rotation += lerp(0, deg2rad(targetrot), rotspeed / truerots)
+			var truedeltarot = abs(lerp(0, targetrot - oldrot, rotspeed))
+			rotation_degrees += truedeltarot
+		# If we need to subtract rotation
 		if targetrot < rotation_degrees:
 			is_Rotating = true
-			rotation -= lerp(0, deg2rad(targetrot), rotspeed / truerots)
+			var truedeltarot = abs(lerp(0, targetrot - oldrot, rotspeed))
+			rotation_degrees -= truedeltarot
 	else:
 		is_Rotating = false
-		pass
+		rotation_degrees = targetrot
+	pass

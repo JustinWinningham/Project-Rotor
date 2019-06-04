@@ -1,8 +1,9 @@
 extends Area2D
 
-export(String) var scenePath = "res://Scenes/Level1.tscn"
+export(String) var scenePath = "res://Scenes/Levels/Level1.tscn"
 export(int) var level
 var time = 0.0
+var haswon = false
 
 # This looks wrong, but it's not. Don't forget that this is triggered when the platform LOADS, not when area is triggered
 func _ready():
@@ -16,9 +17,12 @@ func _process(delta):
 	time += delta
 	var bods = get_overlapping_bodies()
 	for bod in bods:
-		if bod.name == "Player":
+		if bod.name == "Player" and not haswon:
+			GLOBAL.STATE = GLOBAL.GAMESTATE.LEVELWIN
+			haswon = true
 			if GLOBAL.get_best_time() > time:
 				GLOBAL.update_best_time(level, time)
-				GLOBAL.current_level += 1
-			get_tree().change_scene(scenePath)
+				GLOBAL.current_level = level + 1
+				GLOBAL.level2load = scenePath
+			#get_tree().change_scene(scenePath)
 	pass

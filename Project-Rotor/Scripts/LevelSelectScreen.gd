@@ -5,5 +5,5 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_pressed("PAUSE"):
-		get_tree().change_scene("res://Scenes/Main Menu.tscn")
+		get_tree().change_scene("res://Scenes/Menus/Main Menu.tscn")
 	pass
