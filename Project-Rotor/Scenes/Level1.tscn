@@ -36,16 +36,35 @@ rotation = -1.5893
 [node name="3" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
 position = Vector2( 304.956, 160.207 )
 rotation = -1.5893
-direction = 1
 
 [node name="4" parent="MapRotator/Buttons" instance=ExtResource( 4 )]
 position = Vector2( 307.411, 193.356 )
 rotation = -1.5893
-direction = 1
 
 [node name="LevelFinish" parent="MapRotator" instance=ExtResource( 5 )]
 modulate = Color( 0.180392, 0.6, 0.0313726, 1 )
 position = Vector2( 227.177, 25.6119 )
 scenePath = "res://Scenes/Level2.tscn"
 level = 1
+
+[node name="DEBUG_A" type="Label" parent="MapRotator"]
+margin_left = -175.566
+margin_top = 39.2876
+margin_right = -127.566
+margin_bottom = 53.2876
+text = "TARGET"
+
+[node name="DEBUG_B" type="Label" parent="MapRotator"]
+margin_left = -94.5358
+margin_top = 40.5154
+margin_right = -36.5358
+margin_bottom = 54.5154
+text = "CURRENT"
+
+[node name="DEBUG_C" type="Label" parent="MapRotator"]
+margin_left = 11.0497
+margin_top = 42.9709
+margin_right = 69.0497
+margin_bottom = 56.9709
+text = "ROTS"
 

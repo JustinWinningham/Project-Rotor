@@ -81,19 +81,16 @@ func load_game():
 	data = save_game.get_var()
 	save_game.close()
 	for i in data:
-		print("setting " + str(i) + " to " + str(data[i]))
 		set(i, data[i])
 	return true
 
 
 func get_best_time():
-	print("GETTING BEST TIME FOR LEVEL " + str(current_level))
 	if timesArray[current_level] == null:
 		return 999.99
 	return timesArray[current_level]
 	pass
 
 func update_best_time(level, time):
-	print("UPDATING BEST TIME FOR LEVEL " + str(level) + " WITH TIME OF " + str(time))
 	timesArray[level] = time
 	pass

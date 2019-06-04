@@ -1,7 +1,5 @@
 extends Area2D
 
-enum rot_dir {CLOCKWISE, COUNTERCLOCKWISE}
-export(rot_dir) var direction = rot_dir.CLOCKWISE
 export(int) var delta_rotation = 90
 export(float) var rot_speed = 0.005
 var pressed = false
@@ -32,7 +30,4 @@ func _check_for_rotate():
 	return false
 	
 func _get_delta_dir():
-	if direction == rot_dir.CLOCKWISE:
-		return delta_rotation
-	else:
-		return delta_rotation * -1
+	return delta_rotation * -1

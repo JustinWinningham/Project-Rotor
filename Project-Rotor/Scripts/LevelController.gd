@@ -12,6 +12,9 @@ func _ready():
 
 
 func _process(delta):
+	$DEBUG_A.text = str(targetrot)
+	$DEBUG_C.text = str(numrots)
+	
 	timeTaken += delta
 	if not is_Rotating:
 		var btns = $Buttons.get_children()
@@ -20,15 +23,16 @@ func _process(delta):
 			if ctrl:
 				oldrot = rotation_degrees
 				var deltadir = btn.call("_get_delta_dir")
+				$DEBUG_B.text = str(deltadir)
 				if deltadir > 0:
 					numrots += 1
+					targetrot += deltadir
 				else:
 					numrots -= 1
-				targetrot += deltadir
+					targetrot -= deltadir
 				rotspeed = btn.rot_speed
 			pass
 		pass
-	
 	if stepify(rotation_degrees, 1) != targetrot:
 		# Current issue: when we try to rotate with numrots == 0, divide by zero error
 		var truerots = abs(numrots) # EXPERIMENTAL
