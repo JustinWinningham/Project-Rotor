@@ -6,7 +6,7 @@ const MAX_SPEED = 400 # terminal velocity
 const ACCELERATION = 20 # left/right movement acceleration
 const JUMP_FORCE = -300 # Max jump force
 const WALLJUMP_WINDOW_MAX = 60 # Grip reset value
-const FLUMP_WINDOW_MAX = 10 # Flump reset value
+const FLUMP_WINDOW_MAX = 20 # Flump reset value
 
 var walljump_window = WALLJUMP_WINDOW_MAX # tracks if player can walljump
 var flump_window = FLUMP_WINDOW_MAX # tracks if player can jump (for a few frames after leaving ground)
@@ -30,6 +30,7 @@ func _physics_process(delta):
 	########### Right Movement Handling ###########
 	
 	if Input.is_action_pressed("ui_right"):
+		GLOBAL.time_moveright += delta
 		$Sprite.set_speed_scale(1) # reset our run animation speed to default
 		pass
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED) # Add movement force
@@ -47,6 +48,7 @@ func _physics_process(delta):
 	########### Left Movement Handling ###########
 	
 	elif Input.is_action_pressed("ui_left"):
+		GLOBAL.time_moveleft += delta
 		$Sprite.set_speed_scale(1) # reset our run animation speed to default
 		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED) # Add movement force
 		if motion.x > 0:
@@ -88,6 +90,8 @@ func _physics_process(delta):
 		##### Floor handling #####
 		
 	if is_on_floor():
+		GLOBAL.time_floored += delta
+		$Camera2D/CanvasLayer/UI._player_touching_floor(true)
 		was_on_wall_last_frame = false # Since we are on the floor, we are no longer on the wall
 		was_airborne_last_frame = false # Since we are on the floor, we are no longer in the air
 		walljump_window = min(walljump_window + 2, WALLJUMP_WINDOW_MAX)
@@ -98,7 +102,9 @@ func _physics_process(delta):
 	##### Wall handling #####
 	
 	elif is_on_wall():
-		flump_window = 0 # Reset our flump window
+		GLOBAL.time_walled += delta
+		$Camera2D/CanvasLayer/UI._player_touching_floor(false)
+		$Camera2D/CanvasLayer/UI._player_touching_wall(true)
 		$Sprite.play("hang") # We are on the wall, so set state and animation to say so
 		was_on_wall_last_frame = true
 		if walljump_window > WALLJUMP_WINDOW_MAX / 2: # We only want the slide to occur if we are above 50% grip
@@ -107,14 +113,14 @@ func _physics_process(delta):
 		# if we jumped, pressed left/right, and are still within the walljump window - allow a walljump
 		
 		if Input.is_action_just_pressed("jump") and Input.is_action_pressed("ui_left") and walljump_window > 0:
-			#$"/root/GLOBAL".num_walljumps += 1
+			GLOBAL.num_walljumps += 1
 			$Sprite.flip_h = false
 			motion.x = MAX_SPEED
 			motion.y = JUMP_FORCE
 #				walljump_window -= 20 # Uncomment if we want to have walljumps reduce grip
 		
 		elif Input.is_action_just_pressed("jump") and Input.is_action_pressed("ui_right") and walljump_window > 0:
-			#$"/root/GLOBAL".num_walljumps += 1
+			GLOBAL.num_walljumps += 1
 			$Sprite.flip_h = true
 			motion.x = -MAX_SPEED
 			motion.y = JUMP_FORCE
@@ -129,6 +135,9 @@ func _physics_process(delta):
 	# If we are not on a floor, hanging on a wall (or on a wall the last frame)...
 	# Basically meaning that we are airborne
 	else:
+		$Camera2D/CanvasLayer/UI._player_touching_floor(false)
+		$Camera2D/CanvasLayer/UI._player_touching_wall(false)
+		GLOBAL.time_airborne += delta
 		if motion.y < 0: # If we are rising
 			$Sprite.play("jump")
 			pass
@@ -142,14 +151,19 @@ func _physics_process(delta):
 	
 	if flump_window > 0:
 		if Input.is_action_just_pressed("jump"):
-			#$"/root/GLOBAL".num_jumps += 1
+			GLOBAL.num_jumps += 1
 			motion.y = JUMP_FORCE
 			airMotion = motion
+	
+	if Input.is_action_just_pressed("ui_down"):
+		GLOBAL.num_ducks += 1
+	
+	if Input.is_action_pressed("ui_down"):
+		GLOBAL.time_ducked += delta
+		$Sprite.scale = Vector2(1.0, 0.5)
+		$CollisionShape2D.scale = Vector2(1.0, 0.5)
+	else:
+		$Sprite.scale = Vector2(1,1)
+		$CollisionShape2D.scale = Vector2(1,1)
 			
-	motion = move_and_slide(motion, UP, true, 4, deg2rad(60), false)
-#	if position.x < 0:
-#		position.x = 0
-#		motion.x = 0
-#	if position.x > 1280:
-#		position.x = 1280
-#		motion.x = 0
+	motion = move_and_slide(motion, UP, true, 2, deg2rad(45), false)

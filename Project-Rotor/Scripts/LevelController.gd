@@ -30,12 +30,16 @@ func _process(delta):
 		pass
 	
 	if stepify(rotation_degrees, 1) != targetrot:
+		# Current issue: when we try to rotate with numrots == 0, divide by zero error
+		var truerots = abs(numrots) # EXPERIMENTAL
+		if truerots == 0: # EXPERIMENTAL
+			truerots = 1 # EXPERIMENTAL
 		if targetrot > rotation_degrees:
 			is_Rotating = true
-			rotation += lerp(0, deg2rad(targetrot), rotspeed / numrots)
+			rotation += lerp(0, deg2rad(targetrot), rotspeed / truerots)
 		if targetrot < rotation_degrees:
 			is_Rotating = true
-			rotation -= lerp(0, deg2rad(targetrot), rotspeed / numrots)
+			rotation -= lerp(0, deg2rad(targetrot), rotspeed / truerots)
 	else:
 		is_Rotating = false
 		pass

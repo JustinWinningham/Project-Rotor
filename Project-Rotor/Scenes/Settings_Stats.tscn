@@ -1,0 +1,146 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Settings_Stats.gd" type="Script" id=1]
+
+[node name="Settings_Stats" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.200069
+margin_right = -0.200073
+script = ExtResource( 1 )
+
+[node name="Settings" type="Control" parent="."]
+anchor_right = 0.5
+anchor_bottom = 1.0
+
+[node name="BackBtn" type="Button" parent="Settings"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 250.0
+margin_bottom = 100.0
+text = "BACK"
+
+[node name="ApplyBtn" type="Button" parent="Settings"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 350.0
+margin_top = -1030.0
+margin_right = 550.0
+margin_bottom = -980.0
+text = "Apply"
+
+[node name="DefaultsBtn" type="Button" parent="Settings"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 650.0
+margin_top = -1030.0
+margin_right = 850.0
+margin_bottom = -980.0
+text = "Default"
+
+[node name="DefaultConfirm" type="ConfirmationDialog" parent="Settings"]
+margin_left = -155.231
+margin_top = 253.459
+margin_right = 214.769
+margin_bottom = 323.459
+window_title = "Reset Defaults?"
+dialog_text = "Are you sure you want to reset your settings to default?"
+
+[node name="DiscardUnsavedConfirm" type="ConfirmationDialog" parent="Settings"]
+margin_left = -377.187
+margin_top = 279.235
+margin_right = 168.813
+margin_bottom = 349.235
+window_title = "Discard Unsaved Changes?"
+dialog_text = "You have unsaved changes to your settings. Do you want to discard these changes?"
+
+[node name="DEBUGBTN" type="Button" parent="Settings"]
+margin_left = 632.485
+margin_top = 375.601
+margin_right = 816.485
+margin_bottom = 438.601
+
+[node name="Stats" type="Control" parent="."]
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 960.0
+margin_right = 960.0
+
+[node name="NumDeaths" type="Label" parent="Stats"]
+margin_left = 400.0
+margin_top = 125.0
+margin_right = 512.0
+margin_bottom = 149.0
+text = "TEST STATS LABEL"
+
+[node name="NumJumps" type="Label" parent="Stats"]
+margin_left = 400.0
+margin_top = 201.0
+margin_right = 512.0
+margin_bottom = 224.0
+text = "TEST STATS LABEL"
+
+[node name="NumWalljumps" type="Label" parent="Stats"]
+margin_left = 400.0
+margin_top = 151.0
+margin_right = 512.0
+margin_bottom = 168.0
+text = "TEST STATS LABEL"
+
+[node name="NumCrouch" type="Label" parent="Stats"]
+margin_left = 400.0
+margin_top = 172.3
+margin_right = 512.0
+margin_bottom = 225.3
+text = "TEST STATS LABEL"
+
+[node name="TimeLeft" type="Label" parent="Stats"]
+margin_left = 400.0
+margin_top = 268.0
+margin_right = 512.0
+margin_bottom = 292.0
+text = "TEST STATS LABEL"
+
+[node name="TimeRight" type="Label" parent="Stats"]
+margin_left = 400.0
+margin_top = 224.0
+margin_right = 512.0
+margin_bottom = 248.0
+text = "TEST STATS LABEL"
+
+[node name="TimeAir" type="Label" parent="Stats"]
+margin_left = 400.0
+margin_top = 291.8
+margin_right = 512.0
+margin_bottom = 312.8
+text = "TEST STATS LABEL"
+
+[node name="TimeCrouch" type="Label" parent="Stats"]
+margin_left = 400.0
+margin_top = 247.0
+margin_right = 512.0
+margin_bottom = 270.0
+text = "TEST STATS LABEL"
+
+[node name="StatResetBtn" type="Button" parent="Stats"]
+margin_top = 50.0
+margin_right = 200.0
+margin_bottom = 100.0
+text = "Reset All Stats"
+
+[node name="ConfirmStatReset" type="ConfirmationDialog" parent="Stats/StatResetBtn"]
+margin_left = -207.893
+margin_top = 216.638
+margin_right = 148.107
+margin_bottom = 286.638
+window_title = "Confirm Stat Reset"
+dialog_text = "Are you sure you want to reset these pointless stats?"
+
+[connection signal="pressed" from="Settings/BackBtn" to="." method="_on_BackBtn_pressed"]
+[connection signal="pressed" from="Settings/ApplyBtn" to="." method="_on_ApplyBtn_pressed"]
+[connection signal="pressed" from="Settings/DefaultsBtn" to="." method="_on_DefaultsBtn_pressed"]
+[connection signal="confirmed" from="Settings/DefaultConfirm" to="." method="_on_DefaultConfirm_confirmed"]
+[connection signal="confirmed" from="Settings/DiscardUnsavedConfirm" to="." method="_on_ConfirmationDialog_confirmed"]
+[connection signal="pressed" from="Settings/DEBUGBTN" to="." method="_on_DEBUGBTN_pressed"]
+[connection signal="pressed" from="Stats/StatResetBtn" to="." method="_on_StatResetBtn_pressed"]
+[connection signal="confirmed" from="Stats/StatResetBtn/ConfirmStatReset" to="." method="_on_ConfirmStatReset_confirmed"]
