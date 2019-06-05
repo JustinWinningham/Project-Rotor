@@ -9,7 +9,7 @@ func _ready():
 	pass
 
 func _pressed():
-	#thePlayer.play()
-	get_tree().change_scene(scenePath)
+	GLOBAL.level2load = scenePath
+	GLOBAL.STATE = GLOBAL.GAMESTATE.LEAVESCENE
 	if get_tree().paused:
 		get_tree().paused = false

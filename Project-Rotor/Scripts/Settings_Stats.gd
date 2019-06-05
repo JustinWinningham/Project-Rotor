@@ -4,6 +4,7 @@ var unsaved_changes = false
 export(NodePath) var backmenu = "res://Scenes/Menus/Main Menu.tscn"
 
 func _ready():
+	GLOBAL.STATE = GLOBAL.GAMESTATE.ENTERSCENE
 	pass # Replace with function body.
 
 

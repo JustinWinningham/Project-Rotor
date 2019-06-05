@@ -13,6 +13,10 @@ func _ready():
 	pass
 
 func _process(delta):
+	
+	if GLOBAL.STATE != GLOBAL.GAMESTATE.IDLE:
+		return
+	
 	timeTaken += delta
 	# Update our target rotation to trigger the next loop
 	# By looping over all of our buttons and checking if they have been tripped

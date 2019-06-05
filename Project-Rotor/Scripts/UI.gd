@@ -2,18 +2,23 @@ extends Control
 
 var theTime = 0.0
 var bestTime
+var inputchildren
 
 func _ready():
+	inputchildren = $ScreenControls.get_children()
+	GLOBAL.STATE = GLOBAL.GAMESTATE.ENTERSCENE
 	bestTime = GLOBAL.get_best_time()
 	pass
 
 func _process(delta):
+	if GLOBAL.STATE != GLOBAL.GAMESTATE.IDLE:
+		return
+	
+	
 	theTime += delta
 	$TimeLabel.text = "Current Time: " + str(stepify(theTime, 0.01))
 	$BestTimeLabel.text = "Best Time: " + str(stepify(bestTime, 0.01))
 	$CurrentLevel.text = "Current level: " + str(GLOBAL.current_level)
-	
-	var inputchildren = $ScreenControls.get_children()
 	
 	for child in inputchildren:
 		child.play("OFF")

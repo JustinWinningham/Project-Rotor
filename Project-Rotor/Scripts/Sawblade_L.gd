@@ -22,14 +22,20 @@ func _ready():
 
 
 func _process(delta):
+	
+	# We may want to remove this later if we impliment a death animation
+	if GLOBAL.STATE != GLOBAL.GAMESTATE.IDLE:
+		return
+		
 	$AnimatedSprite.rotation_degrees += spin_speed
 	# Calculate movement towards (or return from) the move_to point at speed
 	var bods = get_overlapping_bodies()
 	for bod in bods:
 		if bod.name == "Player":
 			GLOBAL.num_deaths += 1
+			GLOBAL.STATE = GLOBAL.GAMESTATE.LEVELDEATH
 			# Kill the player. we will reset the scene for now, but in future need to handle player death more gracefully
-			get_tree().reload_current_scene()
+			#get_tree().reload_current_scene()
 			print("Player hit a sawblade. Dead.")
 			pass
 	if not statik:

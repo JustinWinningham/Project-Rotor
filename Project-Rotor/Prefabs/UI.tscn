@@ -1,7 +1,7 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
-[ext_resource path="res://PAUSED.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/PAUSED.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Prefabs/QuitButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=5]
@@ -19,11 +19,7 @@
 [ext_resource path="res://Art/Arrows/WALL.png" type="Texture" id=17]
 [ext_resource path="res://Art/Arrows/FLOOR_50.png" type="Texture" id=18]
 [ext_resource path="res://Art/Arrows/FLOOR.png" type="Texture" id=19]
-[ext_resource path="res://Scripts/End_Of_Level.gd" type="Script" id=20]
-[ext_resource path="res://Art/Transition bars/bar04.png" type="Texture" id=21]
-[ext_resource path="res://Art/Transition bars/bar05.png" type="Texture" id=22]
-[ext_resource path="res://Art/Transition bars/bar06.png" type="Texture" id=23]
-[ext_resource path="res://Art/Transition bars/bar03.png" type="Texture" id=24]
+[ext_resource path="res://Prefabs/Transition_Controller.tscn" type="PackedScene" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -121,8 +117,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1920.0
+margin_left = -1917.73
 margin_top = -1080.0
+margin_right = 2.27209
 script = ExtResource( 1 )
 
 [node name="TimeLabel" type="Label" parent="."]
@@ -249,65 +246,6 @@ scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 7 )
 animation = "OFF"
 
-[node name="End_Of_Level" type="Node2D" parent="."]
-pause_mode = 2
-script = ExtResource( 20 )
-time_winning = 2
-time_dying = 2
-
-[node name="Bars" type="Node" parent="End_Of_Level"]
-editor/display_folded = true
-
-[node name="Sprite0" type="Sprite" parent="End_Of_Level/Bars"]
-position = Vector2( -2000, 0 )
-texture = ExtResource( 21 )
-centered = false
-
-[node name="Sprite1" type="Sprite" parent="End_Of_Level/Bars"]
-position = Vector2( -2000, 80 )
-texture = ExtResource( 21 )
-centered = false
-
-[node name="Sprite2" type="Sprite" parent="End_Of_Level/Bars"]
-position = Vector2( -2000, 160 )
-texture = ExtResource( 22 )
-centered = false
-
-[node name="Sprite3" type="Sprite" parent="End_Of_Level/Bars"]
-position = Vector2( -2000, 290 )
-texture = ExtResource( 23 )
-centered = false
-
-[node name="Sprite4" type="Sprite" parent="End_Of_Level/Bars"]
-position = Vector2( -2000, 508 )
-texture = ExtResource( 21 )
-centered = false
-
-[node name="Sprite5" type="Sprite" parent="End_Of_Level/Bars"]
-position = Vector2( -2000, 588 )
-texture = ExtResource( 22 )
-centered = false
-
-[node name="Sprite6" type="Sprite" parent="End_Of_Level/Bars"]
-position = Vector2( -2000, 718 )
-texture = ExtResource( 21 )
-centered = false
-
-[node name="Sprite7" type="Sprite" parent="End_Of_Level/Bars"]
-position = Vector2( -2000, 798 )
-texture = ExtResource( 23 )
-centered = false
-
-[node name="Sprite8" type="Sprite" parent="End_Of_Level/Bars"]
-position = Vector2( -2000, 1016 )
-scale = Vector2( 1.1, 1.1 )
-texture = ExtResource( 21 )
-centered = false
-
-[node name="Sprite9" type="Sprite" parent="End_Of_Level/Bars"]
-position = Vector2( -2000, 0 )
-scale = Vector2( 0.535389, 5.2481 )
-texture = ExtResource( 24 )
-centered = false
+[node name="Transition_Controller" parent="." instance=ExtResource( 20 )]
 
 [connection signal="confirmed" from="PAUSED/PauseIcon/QuitButton/ConfirmationDialog" to="PAUSED/PauseIcon/QuitButton" method="_on_ConfirmationDialog_confirmed"]
