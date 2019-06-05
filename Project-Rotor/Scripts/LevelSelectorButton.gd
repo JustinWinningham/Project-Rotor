@@ -7,7 +7,7 @@ func _ready():
 	if GLOBAL.max_level < Lvl_Number:
 		visible = false
 	if scenePath == "" or scenePath == null:
-		scenePath = "res://Scenes/Main Menu.tscn"
+		scenePath = "res://Scenes/Menus/Main Menu.tscn"
 		print ("No scene found, " + name + " defaulting to main menu")
 	pass
 

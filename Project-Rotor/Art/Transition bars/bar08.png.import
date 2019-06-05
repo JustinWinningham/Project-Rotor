@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WALL_50.png-bbbb9b859ea88e37f4f73e131aef5cb3.stex"
+path="res://.import/bar08.png-adc13fb936781802741ae42ee7233492.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/WALL_50.png"
-dest_files=[ "res://.import/WALL_50.png-bbbb9b859ea88e37f4f73e131aef5cb3.stex" ]
+source_file="res://Art/Transition bars/bar08.png"
+dest_files=[ "res://.import/bar08.png-adc13fb936781802741ae42ee7233492.stex" ]
 
 [params]
 

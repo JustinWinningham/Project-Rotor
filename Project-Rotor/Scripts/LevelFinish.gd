@@ -1,6 +1,6 @@
 extends Area2D
 
-export(String) var scenePath = "res://Scenes/Level1.tscn"
+export(String) var scenePath = "res://Scenes/Levels/Level1.tscn"
 export(int) var level
 var time = 0.0
 
@@ -13,12 +13,16 @@ func _ready():
 	pass 
 
 func _process(delta):
+	if GLOBAL.STATE != GLOBAL.GAMESTATE.IDLE:
+		return
+	
 	time += delta
 	var bods = get_overlapping_bodies()
 	for bod in bods:
 		if bod.name == "Player":
+			GLOBAL.STATE = GLOBAL.GAMESTATE.LEVELWIN
 			if GLOBAL.get_best_time() > time:
 				GLOBAL.update_best_time(level, time)
-				GLOBAL.current_level += 1
-			get_tree().change_scene(scenePath)
+				GLOBAL.current_level = level + 1
+				GLOBAL.level2load = scenePath
 	pass

@@ -16,9 +16,11 @@ var was_airborne_last_frame = true # treacks if we were airborne last frame - fo
 var motion = Vector2() # track our frame motion
 var last_frame_motion = Vector2(1.0, 1.0) # tracks what our motion was in the last frame
 var airMotion = Vector2() # used in flump calulations
-var playerHasControl = true # for suspending player control for various reasons
 
 func _physics_process(delta):
+	
+	if GLOBAL.STATE != GLOBAL.GAMESTATE.IDLE:
+		return
 	
 	########### Gravity Handling ###########
 	

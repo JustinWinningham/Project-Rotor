@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/End_Of_Level.gd" type="Script" id=1]
+[ext_resource path="res://Art/Transition bars/bar04.png" type="Texture" id=2]
+[ext_resource path="res://Art/Transition bars/bar05.png" type="Texture" id=3]
+[ext_resource path="res://Art/Transition bars/bar06.png" type="Texture" id=4]
+[ext_resource path="res://Art/Transition bars/bar03.png" type="Texture" id=5]
+
+[node name="Level_Transition" type="Node2D"]
+pause_mode = 2
+visible = false
+script = ExtResource( 1 )
+time_winning = 2
+
+[node name="Bars" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Sprite0" type="Sprite" parent="Bars"]
+position = Vector2( 400, 0 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite1" type="Sprite" parent="Bars"]
+position = Vector2( 400, 80 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Bars"]
+position = Vector2( 400, 160 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="Bars"]
+position = Vector2( 400, 290 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="Bars"]
+position = Vector2( 400, 508 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite5" type="Sprite" parent="Bars"]
+position = Vector2( 400, 588 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="Bars"]
+position = Vector2( 400, 718 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite7" type="Sprite" parent="Bars"]
+position = Vector2( 400, 798 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Sprite8" type="Sprite" parent="Bars"]
+position = Vector2( 400, 1016 )
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite9" type="Sprite" parent="Bars"]
+position = Vector2( -300, 0 )
+scale = Vector2( 0.535389, 5.2481 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Win_Elements" type="Control" parent="CanvasLayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Win_Elements"]
+margin_left = 491.0
+margin_top = 373.0
+margin_right = 708.0
+margin_bottom = 439.0
+text = "TEST WIN MESSAGE!"
+
+[node name="Death_Elements" type="Control" parent="CanvasLayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Death_Elements"]
+margin_left = 509.177
+margin_top = 443.434
+margin_right = 726.177
+margin_bottom = 509.434
+text = "TEST WIN MESSAGE!"
+

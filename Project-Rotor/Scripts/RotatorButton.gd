@@ -28,6 +28,3 @@ func _check_for_rotate():
 			taken = true
 			return true
 	return false
-	
-func _get_delta_dir():
-	return delta_rotation * -1
