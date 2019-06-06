@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GODOT_BIG.png-8cafcb88f6eb16dcbf644163bc6446fd.stex"
+path="res://.import/button_texture03.png-2d0c25489b979254f1cf491fc9d4ea74.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/GODOT_BIG.png"
-dest_files=[ "res://.import/GODOT_BIG.png-8cafcb88f6eb16dcbf644163bc6446fd.stex" ]
+source_file="res://Art/Buttons/button_texture03.png"
+dest_files=[ "res://.import/button_texture03.png-2d0c25489b979254f1cf491fc9d4ea74.stex" ]
 
 [params]
 

@@ -1,6 +1,6 @@
 extends Button
 
-var t = preload("res://Scripts/GLOBAL.gd")
+var t = preload("res://Scripts/Critical/GLOBAL.gd")
 
 func _ready():
 	text = "SAVE"

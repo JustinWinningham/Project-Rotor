@@ -41,7 +41,8 @@ func _on_DefaultsBtn_pressed():
 
 
 func _back_to_main_menu():
-	get_tree().change_scene(backmenu)
+	GLOBAL.level2load = backmenu
+	GLOBAL.STATE = GLOBAL.GAMESTATE.LEAVESCENE
 	pass
 
 

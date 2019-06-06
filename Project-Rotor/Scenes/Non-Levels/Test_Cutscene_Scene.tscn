@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tilesets/temptiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Prefabs/LevelFinish.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Transition_Controller.tscn" type="PackedScene" id=3]
+
+[node name="Test_Cutscene_Scene" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 1, 0, 983059, 1, 0, 983060, 1, 0 )
+
+[node name="LevelFinish" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.223529, 0.54902, 0.145098, 1 )
+position = Vector2( 1218.46, 922.886 )
+
+[node name="Level_Transition" parent="." instance=ExtResource( 3 )]
+

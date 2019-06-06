@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/LevelSelectScreen.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Menu_Unique/LevelSelectScreen.gd" type="Script" id=1]
 [ext_resource path="res://Themes/Button_Theme_V1.tres" type="Theme" id=2]
-[ext_resource path="res://Scripts/LevelSelectorButton.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Menu_Unique/LevelSelectorButton.gd" type="Script" id=3]
 [ext_resource path="res://Prefabs/Transition_Controller.tscn" type="PackedScene" id=4]
 
 [node name="LevelSelect" type="Control"]

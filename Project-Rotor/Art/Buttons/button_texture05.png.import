@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Discord-Logo-Color.png-477afbd3b8ffa2cd89dfc3ab8e6f82ed.stex"
+path="res://.import/button_texture05.png-a68dcbc4c4d16e5c35740d18ec4a6774.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Discord-Logo-Color.png"
-dest_files=[ "res://.import/Discord-Logo-Color.png-477afbd3b8ffa2cd89dfc3ab8e6f82ed.stex" ]
+source_file="res://Art/Buttons/button_texture05.png"
+dest_files=[ "res://.import/button_texture05.png-a68dcbc4c4d16e5c35740d18ec4a6774.stex" ]
 
 [params]
 
