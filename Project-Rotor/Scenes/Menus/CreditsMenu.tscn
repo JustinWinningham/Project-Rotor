@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Menu_State_Controller.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://Prefabs/Transition_Controller.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Themes/Button_Theme_V1.tres" type="Theme" id=2]
+[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Prefabs/Transition_Controller.tscn" type="PackedScene" id=5]
 
 [node name="CreditsMenu" type="Control"]
 anchor_right = 1.0
@@ -15,25 +16,26 @@ script = ExtResource( 1 )
 [node name="BackBtn" type="Button" parent="."]
 margin_right = 100.0
 margin_bottom = 50.0
+theme = ExtResource( 2 )
 text = "back"
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 scenePath = "res://Scenes/Menus/Main Menu.tscn"
 
 [node name="Code" type="Sprite" parent="."]
 position = Vector2( 941.819, 272.723 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Art" type="Sprite" parent="."]
 position = Vector2( 947.937, 425.33 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Music" type="Sprite" parent="."]
 position = Vector2( 953.47, 591.453 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Team" type="Sprite" parent="."]
 position = Vector2( 957.766, 760.426 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
-[node name="Level_Transition" parent="." instance=ExtResource( 4 )]
+[node name="Level_Transition" parent="." instance=ExtResource( 5 )]
 

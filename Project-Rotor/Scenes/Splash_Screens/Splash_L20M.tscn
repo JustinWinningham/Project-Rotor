@@ -1,36 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Splasher.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Art/background_lv20MImic.png" type="Texture" id=3]
+[ext_resource path="res://Art/Fonts/softball-v1/Softball.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 4 )
 
 [node name="Splash_GODOT" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Background" type="Sprite" parent="."]
 self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 960, 540 )
 scale = Vector2( 37.9212, 20.9162 )
 texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 960, 540 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="SkipLabel" type="Label" parent="."]
-margin_left = 860.0
-margin_top = -540.125
-margin_right = 960.156
-margin_bottom = -530.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -178.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 1 )
 text = "ESCAPE to skip"
 
 [connection signal="ready" from="Tween" to="." method="_on_Tween_ready"]
