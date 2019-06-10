@@ -1,15 +1,77 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://Scripts/Menu_State_Controller.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Menu_Unique/Menu_State_Controller.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Themes/Button_Theme_V1.tres" type="Theme" id=3]
-[ext_resource path="res://Scripts/ButtonChangeScene.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/SaveBtn.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/QuitButton.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/DEBUGSAVEBTN.gd" type="Script" id=7]
-[ext_resource path="res://Prefabs/Transition_Controller.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Art/Pixel_Disco.png" type="Texture" id=9]
-[ext_resource path="res://Scripts/OpenDisco.gd" type="Script" id=10]
+[ext_resource path="res://Art/Buttons/button_texture02.png" type="Texture" id=3]
+[ext_resource path="res://Art/Fonts/Font_Templates/Softball_UI_Font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scripts/Modular/ButtonChangeScene.gd" type="Script" id=5]
+[ext_resource path="res://Art/Buttons/button_texture04.png" type="Texture" id=6]
+[ext_resource path="res://Art/Buttons/button_texture03.png" type="Texture" id=7]
+[ext_resource path="res://Themes/Button_Theme_V1.tres" type="Theme" id=8]
+[ext_resource path="res://Scripts/Menu_Unique/SaveBtn.gd" type="Script" id=9]
+[ext_resource path="res://Art/Buttons/button_texture05.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Modular/QuitButton.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/DEBUG_SCRIPTS/DEBUGSAVEBTN.gd" type="Script" id=12]
+[ext_resource path="res://Art/Logos/Pixel_Disco.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/Menu_Unique/OpenDisco.gd" type="Script" id=14]
+[ext_resource path="res://Prefabs/Transition_Controller.tscn" type="PackedScene" id=15]
+
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 200, 50 )
+modulate_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 200, 50 )
+modulate_color = Color( 0.627451, 0.513726, 0.384314, 1 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 200, 50 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 200, 50 )
+modulate_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 200, 50 )
+modulate_color = Color( 0.627451, 0.513726, 0.384314, 1 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 200, 50 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 200, 50 )
+modulate_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 200, 50 )
+modulate_color = Color( 0.627451, 0.513726, 0.384314, 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 200, 50 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 200, 50 )
+modulate_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 200, 50 )
+modulate_color = Color( 0.627451, 0.513726, 0.384314, 1 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 200, 50 )
 
 [node name="Main Menu" type="Control"]
 anchor_right = 1.0
@@ -25,13 +87,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -25.0
-margin_right = 100.0
-margin_bottom = 25.0
-theme = ExtResource( 3 )
+margin_left = -106.0
+margin_top = -28.0
+margin_right = 106.0
+margin_bottom = 28.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Play"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 scenePath = "res://Scenes/Levels/TutorialLevel.tscn"
 
 [node name="SettingsStatsBtn" type="Button" parent="."]
@@ -44,9 +110,13 @@ margin_top = 125.0
 margin_right = 120.0
 margin_bottom = 175.0
 rect_pivot_offset = Vector2( 0.652832, 0.188904 )
-theme = ExtResource( 3 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Settings and Stats"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 scenePath = "res://Scenes/Menus/Settings_Stats.tscn"
 
 [node name="LevelSelectBtn" type="Button" parent="."]
@@ -58,9 +128,14 @@ margin_left = -100.0
 margin_top = 50.0
 margin_right = 100.0
 margin_bottom = 100.0
-theme = ExtResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/hseparation = 0
 text = "Level Select"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 scenePath = "res://Scenes/Menus/LevelSelect.tscn"
 
 [node name="CreditsBtn" type="Button" parent="."]
@@ -72,10 +147,24 @@ margin_left = -100.0
 margin_top = 275.0
 margin_right = 100.0
 margin_bottom = 325.0
-theme = ExtResource( 3 )
+theme = ExtResource( 8 )
 text = "Credits"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 scenePath = "res://Scenes/Menus/CreditsMenu.tscn"
+
+[node name="CreditsBtn2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -384.995
+margin_top = 213.93
+margin_right = -184.995
+margin_bottom = 263.93
+theme = ExtResource( 8 )
+text = "Cutscene Testing"
+script = ExtResource( 5 )
+scenePath = "res://Scenes/Non-Levels/Test_Cutscene_Scene.tscn"
 
 [node name="SaveBtn" type="Button" parent="."]
 anchor_left = 0.5
@@ -88,9 +177,9 @@ margin_right = -297.0
 margin_bottom = -44.0
 rect_rotation = -26.155
 hint_tooltip = "this is a tooltip!"
-theme = ExtResource( 3 )
+theme = ExtResource( 8 )
 text = "SAVE"
-script = ExtResource( 5 )
+script = ExtResource( 9 )
 
 [node name="QuitButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -101,9 +190,13 @@ margin_left = -100.0
 margin_top = 200.0
 margin_right = 100.0
 margin_bottom = 250.0
-theme = ExtResource( 3 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Quit"
-script = ExtResource( 6 )
+script = ExtResource( 11 )
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="QuitButton"]
 margin_right = 200.0
@@ -119,9 +212,7 @@ margin_top = 326.0
 margin_right = 686.0
 margin_bottom = 346.0
 text = "Fake update save"
-script = ExtResource( 7 )
-
-[node name="Level_Transition" parent="." instance=ExtResource( 8 )]
+script = ExtResource( 12 )
 
 [node name="DiscordBtn" type="Button" parent="."]
 anchor_top = 1.0
@@ -131,9 +222,11 @@ margin_right = 188.0
 margin_bottom = 104.0
 rect_scale = Vector2( 0.5, 0.5 )
 shortcut_in_tooltip = false
-icon = ExtResource( 9 )
+icon = ExtResource( 13 )
 flat = true
-script = ExtResource( 10 )
+script = ExtResource( 14 )
+
+[node name="Level_Transition" parent="." instance=ExtResource( 15 )]
 
 [connection signal="pressed" from="SaveBtn" to="SaveBtn" method="_on_SaveBtn_pressed"]
 [connection signal="confirmed" from="QuitButton/ConfirmationDialog" to="QuitButton" method="_on_ConfirmationDialog_confirmed"]

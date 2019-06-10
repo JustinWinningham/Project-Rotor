@@ -1,10 +1,12 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/End_Of_Level.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Critical/End_Of_Level.gd" type="Script" id=1]
 [ext_resource path="res://Art/Transition bars/bar04.png" type="Texture" id=2]
 [ext_resource path="res://Art/Transition bars/bar05.png" type="Texture" id=3]
 [ext_resource path="res://Art/Transition bars/bar06.png" type="Texture" id=4]
 [ext_resource path="res://Art/Transition bars/bar03.png" type="Texture" id=5]
+
+
 
 [node name="Level_Transition" type="Node2D"]
 pause_mode = 2

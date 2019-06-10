@@ -6,7 +6,6 @@ var inputchildren
 
 func _ready():
 	inputchildren = $ScreenControls.get_children()
-	GLOBAL.STATE = GLOBAL.GAMESTATE.ENTERSCENE
 	bestTime = GLOBAL.get_best_time()
 	pass
 

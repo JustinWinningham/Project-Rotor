@@ -38,6 +38,7 @@ export(int) var time_winning = 3
 export(int) var time_dying = 2
 
 func _ready():
+	GLOBAL.STATE = GLOBAL.GAMESTATE.ENTERSCENE
 	spritez = $Bars.get_children()
 	visible = true
 	# Seed our initial random speeds at the start for the fade in
